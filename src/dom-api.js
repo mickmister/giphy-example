@@ -15,9 +15,9 @@ var domApi =  {
     /*
       TODO: add new links to the link area
     */
-    // newLinks.forEach(link => {
-    //   linkArea.appendChild(link);
-    // });
+    newLinks.forEach(link => {
+      linkArea.appendChild(link);
+    });
     return newLinks;
   },
 
@@ -29,19 +29,19 @@ var domApi =  {
     var numResults = state.getNumResults();
 
     /* TODO: update number of results on page */
-    // var numResultsElement = document.getElementById('num-results');
-    // numResultsElement.innerHTML = numResults;
+    var numResultsElement = document.getElementById('num-results');
+    numResultsElement.innerHTML = numResults;
 
     /* TODO: update page number on page */
-    // var currentPageNumber = numPages === 0 ? '-' : state.currentPage + 1;
-    // document.getElementById('current-page').innerHTML = currentPageNumber;
+    var currentPageNumber = numPages === 0 ? '-' : state.currentPage + 1;
+    document.getElementById('current-page').innerHTML = currentPageNumber;
 
     var leftPageElement = document.getElementById('left-pagination');
     var rightPageElement = document.getElementById('right-pagination');
 
     /* TODO: disable paging buttons appropriately */
-    // leftPageElement.disabled = state.currentPage === 0;
-    // rightPageElement.disabled = state.currentPage === numPages;
+    leftPageElement.disabled = state.currentPage === 0;
+    rightPageElement.disabled = state.currentPage === numPages;
   },
 
   /*
@@ -52,13 +52,13 @@ var domApi =  {
     /*
       TODO: clear the gif area
     */
-    // gifArea.innerHTML = ''; // clear the gif area
+    gifArea.innerHTML = ''; // clear the gif area
 
     var gif = domApi.createIframe(embedUrl);
     /*
       TODO: add gif to page
     */
-    // gifArea.appendChild(gif); // put the new gif on the page
+    gifArea.appendChild(gif); // put the new gif on the page
   },
 
   /*
@@ -83,7 +83,7 @@ var domApi =  {
     /*
       TODO: attach still image of gif to link
     */
-    // img.src = availableImages.fixed_height_small_still.url;
+    img.src = availableImages.fixed_height_small_still.url;
 
     var imgDiv = document.createElement('div');
     imgDiv.className = 'img-container'
@@ -128,8 +128,8 @@ var domApi =  {
   */
   pageLeft: (e) => {
     /* TODO: page left */
-    // state.currentPage = state.currentPage - 1;
-    // giphyApi.submitSearch();
+    state.currentPage = state.currentPage - 1;
+    giphyApi.submitSearch();
   },
 
   /*
@@ -137,7 +137,7 @@ var domApi =  {
   */
   pageRight: (e) => {
     /* TODO: page right */
-    // state.currentPage = state.currentPage + 1;
-    // giphyApi.submitSearch();
+    state.currentPage = state.currentPage + 1;
+    giphyApi.submitSearch();
   },
 };

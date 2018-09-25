@@ -15,15 +15,6 @@ var state = {
   },
 
   /*
-    get the search box's text and make it url-friendly
-  */
-  getUrlEncodedSearchValue: () => {
-    var searchBox = document.getElementById('search-box');
-    var searchValue = searchBox.value;
-    return searchValue.toLowerCase().split(' ').join('+');
-  },
-
-  /*
     total number of pages for the current search
   */
   getNumPages: () => {
@@ -46,6 +37,15 @@ var state = {
       return 0;
     }
     return state.searchResponse.pagination.total_count;
+  },
+
+  /*
+    get the search box's text and make it url-friendly
+  */
+  getUrlEncodedSearchValue: () => {
+    var searchBox = document.getElementById('search-box');
+    var searchValue = searchBox.value;
+    return searchValue.toLowerCase().split(' ').join('+');
   },
 
   getGifWidth: () => {
