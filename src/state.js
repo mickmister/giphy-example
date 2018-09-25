@@ -30,6 +30,11 @@ var state = {
     if (!state.searchResponse) {
       return 0;
     }
-    return parseInt(state.searchResponse.pagination.total_count / state.linksPerPage) + 1;
+    var totalItems = state.searchResponse.pagination.total_count;
+    if (totalItems === 0) {
+      return 0;
+    }
+
+    return parseInt(totalItems / state.linksPerPage) + 1;
   },
 };

@@ -32,7 +32,9 @@ var domApi =  {
     if (state.currentPage === 0) {
       leftPageElement.disabled = true;
     }
-    document.getElementById('current-page').innerHTML = state.currentPage + 1;
+
+    var currentPageNumber = numPages === 0 ? '-' : state.currentPage + 1;
+    document.getElementById('current-page').innerHTML = currentPageNumber;
   },
 
   /*
