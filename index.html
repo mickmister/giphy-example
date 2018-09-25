@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://unicorn-ui.com/buttons/css/buttons.css" rel="stylesheet" type="text/css">
+
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+    <script src="env.js"></script>
+    <script src="state.js"></script>
+    <script src="dom-api.js"></script>
+    <script src="giphy-api.js"></script>
+    <script src="main.js"></script>
+  </head>
+
+  <body>
+    <form id="search-form" autocomplete="off">
+      <input id="search-box">
+      <button id="search-button" class="button button-primary button-pill button-small">Search</button>
+      <div id="pagination-area">
+        <div>
+          Total number of pages:
+          <span id="num-pages"></span>
+        </div>
+        <div class="pagination-controls">
+          <button id="left-pagination" class="button button-primary button-circle button-small">
+            <i class="fa fa-arrow-left"></i>
+          </button>
+
+          <span id="current-page"></span>
+
+          <button id="right-pagination" class="button button-primary button-circle button-small">
+            <i class="fa fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <div class="separator"></div>
+    <div id="left-side">
+      <div id="link-area"></div>
+    </div>
+
+    <div id="right-side">
+      <div id="gif-area"></div>
+    </div>
+  </body>
+
+</html>
