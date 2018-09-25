@@ -23,4 +23,15 @@ var giphyApi = {
     var xhrResponse = await fetch(`https://api.giphy.com/v1/gifs/search?${marshalledPayload}`);
     return await xhrResponse.json();
   },
+
+  /*
+    search for whatever is in the search box
+  */
+  submitSearch: async() => {
+    var payload = giphyApi.getRequestPayload();
+    state.searchResponse = await giphyApi.sendRequest(payload);
+
+    domApi.handlePaginationUpdates();
+    domApi.handleLinkCreations();
+  },
 }

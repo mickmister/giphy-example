@@ -18,11 +18,12 @@
     <form id="search-form" autocomplete="off">
       <input id="search-box">
       <button id="search-button" class="button button-primary button-pill button-small">Search</button>
+    </form>
       <div id="pagination-area">
         <div>
-          Total number of pages:
-          <span id="num-pages"></span>
-        </div>
+            Total number of results:
+            <span id="num-results"></span>
+          </div>
         <div class="pagination-controls">
           <button id="left-pagination" class="button button-primary button-circle button-small">
             <i class="fa fa-arrow-left"></i>
@@ -34,8 +35,13 @@
             <i class="fa fa-arrow-right"></i>
           </button>
         </div>
+        <div class="gif-sizes">
+          <input hidden value="600" id="gif-width">
+          <input hidden value="400" id="gif-height">
+        </div>
+
       </div>
-    </form>
+
 
     <div class="separator"></div>
     <div id="left-side">

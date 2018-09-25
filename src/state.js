@@ -37,4 +37,22 @@ var state = {
 
     return parseInt(totalItems / state.linksPerPage) + 1;
   },
+
+  /*
+    total number of pages for the current search
+  */
+  getNumResults: () => {
+    if (!state.searchResponse) {
+      return 0;
+    }
+    return state.searchResponse.pagination.total_count;
+  },
+
+  getGifWidth: () => {
+    return document.getElementById('gif-width').value;
+  },
+
+  getGifHeight: () => {
+    return document.getElementById('gif-height').value;
+  },
 };

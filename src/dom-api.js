@@ -5,36 +5,43 @@ var domApi =  {
   */
   handleLinkCreations: () => {
     var data = state.searchResponse.data;
-    var links = data.map(domApi.makeClickableLink);
     var linkArea = document.getElementById('link-area');
+
+    // clear link area
     linkArea.innerHTML = '';
-    links.forEach(link => {
-      linkArea.appendChild(link);
-    });
-    return links;
+
+    var newLinks = data.map(domApi.makeClickableLink);
+
+    /*
+      TODO: add new links to the link area
+    */
+    // newLinks.forEach(link => {
+    //   linkArea.appendChild(link);
+    // });
+    return newLinks;
   },
 
   /*
     update page number and disable paging buttons if appropriate
   */
   handlePaginationUpdates: () => {
+    var numPages = state.getNumPages();
+    var numResults = state.getNumResults();
+
+    /* TODO: update number of results on page */
+    // var numResultsElement = document.getElementById('num-results');
+    // numResultsElement.innerHTML = numResults;
+
+    /* TODO: update page number on page */
+    // var currentPageNumber = numPages === 0 ? '-' : state.currentPage + 1;
+    // document.getElementById('current-page').innerHTML = currentPageNumber;
+
     var leftPageElement = document.getElementById('left-pagination');
     var rightPageElement = document.getElementById('right-pagination');
-    leftPageElement.disabled = false;
-    rightPageElement.disabled = false;
 
-    var numPages = state.getNumPages();
-    var numPagesElement = document.getElementById('num-pages');
-    numPagesElement.innerHTML = numPages;
-    if (state.currentPage === numPages) {
-      rightPageElement.disabled = true;
-    }
-    if (state.currentPage === 0) {
-      leftPageElement.disabled = true;
-    }
-
-    var currentPageNumber = numPages === 0 ? '-' : state.currentPage + 1;
-    document.getElementById('current-page').innerHTML = currentPageNumber;
+    /* TODO: disable paging buttons appropriately */
+    // leftPageElement.disabled = state.currentPage === 0;
+    // rightPageElement.disabled = state.currentPage === numPages;
   },
 
   /*
@@ -42,10 +49,16 @@ var domApi =  {
   */
   showGif: (embedUrl) => {
     var gifArea = document.getElementById('gif-area');
-    gifArea.innerHTML = ''; // clear the gif area
+    /*
+      TODO: clear the gif area
+    */
+    // gifArea.innerHTML = ''; // clear the gif area
 
-    var iframe = domApi.createIframe(embedUrl);
-    gifArea.appendChild(iframe); // put the new gif on the page
+    var gif = domApi.createIframe(embedUrl);
+    /*
+      TODO: add gif to page
+    */
+    // gifArea.appendChild(gif); // put the new gif on the page
   },
 
   /*
@@ -60,12 +73,17 @@ var domApi =  {
 
     var a = document.createElement('a');
     a.innerHTML = title;
+    a.className = 'button button-royal';
     a.onclick = () => domApi.showGif(embedUrl);
     container.appendChild(a);
 
     var img = document.createElement('img');
-    img.src = gifObject.images.fixed_height_small_still.url;
     img.onclick = () => domApi.showGif(embedUrl);
+    var availableImages = gifObject.images;
+    /*
+      TODO: attach still image of gif to link
+    */
+    // img.src = availableImages.fixed_height_small_still.url;
 
     var imgDiv = document.createElement('div');
     imgDiv.className = 'img-container'
@@ -81,8 +99,8 @@ var domApi =  {
   createIframe: (embedUrl) => {
     var iframe = document.createElement('iframe');
     iframe.src = embedUrl;
-    iframe.width = 480;
-    iframe.height = 264;
+    iframe.width = state.getGifWidth();
+    iframe.height = state.getGifHeight();
     iframe.frameBorder = 0;
     iframe.className = 'giphy-embed';
     iframe.allowFullscreen = true;
@@ -102,24 +120,24 @@ var domApi =  {
     rightPageElement.disabled = true;
 
     document.getElementById('current-page').innerHTML = '-';
-    document.getElementById('num-pages').innerHTML = '0';
+    document.getElementById('num-results').innerHTML = '0';
   },
 
   /*
     we clicked the previous page button
   */
   pageLeft: (e) => {
-    e.preventDefault();
-    state.currentPage = state.currentPage - 1;
-    submitSearch();
+    /* TODO: page left */
+    // state.currentPage = state.currentPage - 1;
+    // giphyApi.submitSearch();
   },
 
   /*
     we clicked the next page button
   */
   pageRight: (e) => {
-    e.preventDefault();
-    state.currentPage = state.currentPage + 1;
-    submitSearch();
+    /* TODO: page right */
+    // state.currentPage = state.currentPage + 1;
+    // giphyApi.submitSearch();
   },
 };
